@@ -36,4 +36,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+	/**
+	 * Get the Profiles this User can use
+	 */
+    public function profiles()
+	{
+		return $this->belongsToMany('App/Profile');
+	}
+
+	/**
+	 * Get the posts for the user.
+	 */
+	public function posts()
+	{
+		return $this->hasMany('App\Post');
+	}
+
+	/**
+	 * Get the comments for the user.
+	 */
+	public function posts()
+	{
+		return $this->hasMany('App\Comment');
+	}
 }
